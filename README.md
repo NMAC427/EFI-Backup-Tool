@@ -3,7 +3,7 @@ Used to backup the EFI partition of a Hackintosh to a remote smb server. It auto
 
 ## Usage
 ```
-sh main.sh -l "~/efi_backup.zip" -r "//username:password@127.0.0.1/home"
+sh main.sh -l ~/efi_backup.zip -r "//username:password@127.0.0.1/home"
 ```
 
 To automatically backup the EFI partition after every sucesfull boot, create a bash script (with file extension `.command` & `$ chmod +x your_script.command`) that calls `main.sh` with the correct arguments and attach it to your Login Items (System Preferences > Users & Groups > Login Items).
