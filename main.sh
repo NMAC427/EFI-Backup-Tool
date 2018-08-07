@@ -74,7 +74,7 @@ fi
 
 efi_info=$(diskutil info -plist $EFI_PARTITION)
 efi_mount_point=$(plread ":MountPoint" "$efi_info")
-efi_uuid=$(plread ":VolumeUUID" "$efi_info")
+efi_uuid=$(plread ":DiskUUID" "$efi_info")
 
 echo "Did mount EFI partition ($EFI_PARTITION) at $efi_mount_point"
 
