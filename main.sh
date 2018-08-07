@@ -14,7 +14,7 @@ while true; do
 		-h | --help ) HELP=true; shift ;;
 		-p | --partition ) EFI_PARTITION="$2"; shift; shift ;;
 		-n | --efi-name ) EFI_NAME="$2"; shift; shift ;;
-		-u | --uuid ) VOLUME_UUID="$2"; shift; shift ;;
+		-u | --uuid ) DISK_UUID="$2"; shift; shift ;;
 		-k | --keep ) KEEP_OLD_BACKUPS="$2"; shift; shift ;;
 		-l | --local ) LOCAL_BACKUP_FILE="$2"; shift; shift ;;
 		-r | --remote ) REMOTE_SERVER="$2"; shift; shift ;;
@@ -43,7 +43,7 @@ where:
 	-n name, --efi-name name
 		Set the name of your EFI partition (eg. EFI) to search for.
 	-u id, -uuid id
-		Set the UUID of the EFI partition to search for.
+		Set the UUID of the EFI partition to search for (Disk / Partition UUID).
 	-k n, --keep n
 		Specify how many backups should be kept on the remote server.
 	-l path, --local path

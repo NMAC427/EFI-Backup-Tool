@@ -12,14 +12,14 @@ if [[ -z "$EFI_PARTITION" ]]; then
 		part_info=$(diskutil info -plist $part)
 		content=$(plread ":Content" "$part_info")
 		volume_name=$(plread ":VolumeName" "$part_info")
-		volume_uuid=$(plread ":VolumeUUID" "$part_info")
+		disk_uuid=$(plread ":DiskUUID" "$part_info")
 		is_internal=$(plread ":Internal" "$part_info")
 
 		# Check if partition is EFI partition and append to efi_partitions
 		if [[ $content == "EFI" ]]; then
-			if ([[ -z "$EFI_NAME" ]] || \
-			    [[ "$EFI_NAME" == "$volume_name" ]]) && ([[ -z "$VOLUME_UUID" ]] || \
-			    [[ "$VOLUME_UUID" == "$volume_uuid" ]] && [[ "$is_internal" == "true" ]]); then
+			if (([[ -z "$EFI_NAME" ]] || [[ "$EFI_NAME" == "$volume_name" ]]) && \
+				([[ -z "$DISK_UUID" ]] || [[ "$DISK_UUID" == "$disk_uuid" ]]) && \
+				([[ "$is_internal" == "true" ]])); then
 				efi_partitions+=("$part")
 			fi
 		fi
