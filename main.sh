@@ -96,6 +96,7 @@ clean_up_remote() {
 
 # Make Backup
 source "$SCRIPT_PATH/make_backup.sh"
+cd $HOME
 
 if [[ $UNMOUNT_AFTER_BACKUP == true ]]; then
 	diskutil umount "$EFI_PARTITION" 1> /dev/null
